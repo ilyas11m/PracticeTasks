@@ -1,31 +1,29 @@
 class ArrayBub {
-    private long[] a; // Ссылка на массив a
-    private int nElems; // Количество элементов данных
+    private long[] a;
+    private int nElems;
 
     //--------------------------------------------------------------
-    public ArrayBub(int max) { // Конструктор
-        a = new long[max]; // Создание массива
-        nElems = 0; // Пока нет ни одного элемента
+    public ArrayBub(int max) {
+        a = new long[max];
+        nElems = 0;
     }
 
     //--------------------------------------------------------------
-    public void insert(long value) { // Вставка элемента в массив
-        if (nElems < a.length) { // Проверка границ массива
-            a[nElems] = value; // Собственно вставка
-            nElems++; // Увеличение размера
+    public void insert(long value) {
+        if (nElems < a.length) {
+            a[nElems] = value;
+            nElems++;
         } else {
             System.out.println("Массив переполнен");
         }
     }
 
-    //--------------------------------------------------------------
-    public void display() { // Вывод содержимого массива
-        for (int j = 0; j < nElems; j++) // Для каждого элемента
-            System.out.print(a[j] + " "); // Вывод
-        System.out.println("");
+    public void display() {
+        for (int j = 0; j < nElems; j++)
+            System.out.print(a[j] + " ");
+        System.out.println(" ");
     }
 
-    //--------------------------------------------------------------
     public void bubbleSort() {
         int out, in;
         for (out = nElems - 1; out > 1; out--) { // Изменено условие на out > 0
@@ -36,21 +34,16 @@ class ArrayBub {
             }
         }
     }
-
-    //--------------------------------------------------------------
     private void swap(int one, int two) {
         long temp = a[one];
         a[one] = a[two];
         a[two] = temp;
     }
-
-    //--------------------------------------------------------------
-} // Конец класса ArrayBub
-////////////////////////////////////////////////////////////////
+}
 class BubbleSortApp {
     public static void main(String[] args) {
         int maxSize = 100; // Размер массива
-        ArrayBub arr = new ArrayBub(maxSize); // Создание массива
+        ArrayBub arr = new ArrayBub(maxSize);
 
         // Вставка 10 элементов
         arr.insert(77);
@@ -64,9 +57,9 @@ class BubbleSortApp {
         arr.insert(66);
         arr.insert(33);
 
-        arr.display(); // Вывод элементов до сортировки
-        arr.bubbleSort(); // Пузырьковая сортировка элементов
-        arr.display(); // Вывод элементов после сортировки
+        arr.display();
+        arr.bubbleSort();
+        arr.display();
     }
 }
 
